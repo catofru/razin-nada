@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(response => response.json())
     .then(data => {
       container.innerHTML = ""; // Clear "Loading" text
-      const messages = data.filter(row => row.Message && row.Message.trim() !== "");
+      const messages = data.filter(row => row.message && row.message.trim() !== "");
 
       if (messages.length === 0) {
         container.innerHTML = "<p>No messages yet. Be the first to leave one!</p>";
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         anon.textContent = `Guest ${index + 1} says:`;
 
         const msg = document.createElement("blockquote");
-        msg.textContent = entry.Message;
+        msg.textContent = entry.message;
 
         messageBox.appendChild(anon);
         messageBox.appendChild(msg);
